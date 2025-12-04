@@ -1,0 +1,367 @@
+@use "../utils/mixins" as mixin;
+
+// Загальні змінні
+$color-dark-bg: #14141A;
+$color-text-light: #ffffff;
+$color-text-faded: #8587A2;
+$color-accent-btn: #e0ff4f;
+$breakpoint-desktop: 900px;
+
+// Кольори для кроків 
+$deposit-card-1st-color: #EB3016; 
+$deposit-card-2nd-color: #F5AB51; 
+$deposit-card-3rd-color: #AE6BB5; 
+$deposit-card-4th-color: #A9A71E; 
+
+.br {
+    display: none;
+}
+.reward-cards {
+    margin-top: 120px;
+    background-color: $color-dark-bg;
+    color: $color-text-light;
+    font-family: 'Sofia Sans', sans-serif;
+    
+    &__title {
+        font-family: "Sofia Sans Condensed", sans-serif;
+        letter-spacing: 1px;
+        font-size: 40px;
+        font-weight: 900;
+        margin-bottom: 50px;
+        text-transform: uppercase;
+        text-align: center;
+    }
+
+    // --- ДЕСКТОПНА ВЕРСІЯ (ИСПРАВЛЕНО: CSS Grid 2x2) ---
+    &__content {
+        display: grid;
+        grid-template-columns: 1fr 1fr; 
+        grid-template-rows: auto auto;
+        @include mixin.fluid-prop(row-gap, 18px, 24px, 576px, 1920px);
+        @include mixin.fluid-prop(column-gap, 18px, 24px, 576px, 1920px); 
+        margin: 0 auto;
+        justify-content: center;
+    }
+    
+    .deposit-card {
+        // Стилі для десктопу
+        position: relative;
+        height: 100%;
+        
+        display: flex;
+        width: 100%; 
+        border-radius: 10px;
+        background: #14141A;
+        aspect-ratio: 868 / 288;
+
+        &__bcg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+            background-repeat: no-repeat;
+            background-position: right;
+            background-size: cover;
+            border-radius: 10px;
+        }
+
+        &::before {
+            content: "";
+            position: absolute;
+            inset: -1px;
+            border-radius: inherit;
+            pointer-events: none;
+            z-index: 0; 
+        }
+
+        &__content-wrapper {
+          position: relative;
+          flex-basis: 100%;
+          height: 100%;
+          display: flex;
+          flex-direction: column;
+          align-items: flex-start;
+          justify-content: space-between;
+        //   @include mixin.fluid-prop(padding-block, 16px, 30px, 577px, 1366px);
+        //   @include mixin.fluid-prop(padding-inline, 14px, 30px, 577px, 1366px);
+          @include mixin.fluid-prop(padding-block, 10px, 24px, 1367px, 1920px);
+          @include mixin.fluid-prop(padding-inline, 18px, 24px, 1367px, 1920px);
+        // padding-inline: 24px;
+          border-radius: 10px;
+          z-index: 2;
+        }
+
+        &__title {
+            @include mixin.fluid-prop(margin-bottom, 6px, 10px, 577px, 1920px);
+            color: var(--c); 
+            font-size: clamp(24px,1.665vw,32px);
+            font-weight: 700;    
+            line-height: 1.1;    
+        }
+
+        &__subtitle {
+            color: #BFBFCB;
+            font-size: clamp(14px,0.94vw,20px);;
+            font-weight: 700;
+            line-height: 1.1;
+        }
+
+        &--accent {
+            color: #ffffff;
+            font-weight: 900;
+        }
+
+        &__line {
+            position: absolute;
+            top: 50%;
+            width: 50%;
+            height: 2px;
+            background: linear-gradient(90deg, rgba(255, 255, 255, 0.40) 0%, rgba(255, 255, 255, 0.00) 100%);
+        }
+
+        &__list {
+            padding-left: 16px;
+        }
+        
+        &__item {
+            position: relative;
+            color: #BFBFCB;
+            font-size: clamp(14px,0.935vw,18px);
+            font-weight: 400;
+            line-height: 1.1;
+            &:not(:last-child) {
+          @include mixin.fluid-prop(margin-bottom, 8px, 11px, 577px, 1920px);
+            }
+            &::before {
+                content: "";
+                position: absolute;
+                top: 50%;
+                left: -16px;
+                transform: translateY(-50%);
+                width: 7px;
+                height: 7px;
+                border-radius: 1px;
+                background-color: transparent; 
+            }
+        }
+
+        &__description {
+          font-size: clamp(16px, 0.95vw, 24px);
+          font-weight: 400;
+          color: $color-text-faded;
+        }
+        
+        // ----------------------------------------------------
+        // --- ПОЗИЦИОНИРОВАНИЕ (АДАПТИРОВАНО ПОД СЕТКУ 2x2) ---
+        // ----------------------------------------------------
+
+        // 1st Deposit: Верхний Левый (Красный)
+        &--1st { 
+            grid-area: 1 / 1 / 2 / 2; /* Строка 1, Колонка 1 */
+
+            &::before {
+              background: linear-gradient(180deg, $deposit-card-1st-color, #3B3450);
+            }
+            .deposit-card__bcg {
+                background-image: image-set(url(../../img/bg_1st_1x.webp) 1x, url(../../img/bg_1st_2x.webp) 2x);
+            }
+             .deposit-card__item::before {
+                background-color: $deposit-card-1st-color;
+            }
+        }
+        
+        // 2nd Deposit: Верхний Правый (Оранжевый)
+        &--2nd { 
+            /* ИСПРАВЛЕНО: Теперь Колонка 2 */
+            grid-area: 1 / 2 / 2 / 3; 
+
+            &::before {
+              background: linear-gradient(180deg, $deposit-card-2nd-color, #3B3450);
+            }
+            .deposit-card__bcg {
+                background-image: image-set(url(../../img/bg_2nd_1x.webp) 1x, url(../../img/bg_2nd_2x.webp) 2x);
+            }
+            .deposit-card__item::before {
+                background-color: $deposit-card-2nd-color;
+            }
+        }
+        
+        // 3rd Deposit: Нижний Левый (Фиолетовый)
+        &--3rd { 
+            grid-area: 2 / 1 / 3 / 2; /* Строка 2, Колонка 1 */
+
+            &::before {
+              background: linear-gradient(180deg, $deposit-card-3rd-color, #3B3450);
+            }
+            .deposit-card__bcg {
+                background-image: image-set(url(../../img/bg_3rd_1x.webp) 1x, url(../../img/bg_3rd_2x.webp) 2x);
+            }
+            .deposit-card__item::before {
+                background-color: $deposit-card-3rd-color;
+            }
+        }
+
+        // 4th Deposit: Нижний Правый (Зеленый)
+        &--4th { 
+            /* ИСПРАВЛЕНО: Теперь Колонка 2 */
+            grid-area: 2 / 2 / 3 / 3; 
+
+            &::before {
+              background: linear-gradient(180deg, $deposit-card-4th-color, #3B3450);
+            }
+            .deposit-card__bcg {
+                background-image: image-set(url(../../img/bg_4th_1x.webp) 1x, url(../../img/bg_4th_2x.webp) 2x);
+            }
+            .deposit-card__item::before {
+                background-color: $deposit-card-4th-color;
+            }
+        }
+    }
+
+    // Стилі для кнопки
+    .add-to-betslip-btn {
+        display: block;
+        background-color: $color-accent-btn;
+        color: $color-dark-bg;
+        padding: 15px 10px;
+        border-radius: 8px;
+        text-decoration: none;
+        font-weight: bold;
+        font-size: 16px;
+    }
+    .betslip-odds {
+        display: block;
+        font-size: 12px;
+        font-weight: normal;
+        margin-top: 5px;
+    }
+}
+
+@media (max-width:1367px) {
+    .br {
+        display: block;
+    }
+    .reward-cards {
+        .deposit-card {
+            aspect-ratio: 623/267;
+            &--1st { 
+                .deposit-card__bcg {
+                    background-image: image-set(url(../../img/bg_1st_1366_1x.webp) 1x, url(../../img/bg_1st_1366_2x.webp) 2x);
+                }
+            }
+            &--2nd { 
+                .deposit-card__bcg {
+                    background-image: image-set(url(../../img/bg_2nd_1366_1x.webp) 1x, url(../../img/bg_2nd_1366_2x.webp) 2x);
+                }
+            }
+            &--3rd { 
+                .deposit-card__bcg {
+                    background-image: image-set(url(../../img/bg_3rd_1366_1x.webp) 1x, url(../../img/bg_3rd_1366_2x.webp) 2x);
+                }
+            }
+            &--4th { 
+                .deposit-card__bcg {
+                    background-image: image-set(url(../../img/bg_4th_1366_1x.webp) 1x, url(../../img/bg_4th_1366_2x.webp) 2x);
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: $breakpoint-desktop) {
+    .reward-cards{
+        .deposit-card{
+            &__title {
+                font-size: clamp(16px,2.669vw,24px);
+            }
+            &__subtitle {
+                font-size: clamp(10px,1.555vw,14px);
+            }
+            &__item {
+                font-size: clamp(10px, 1.555vw, 14px);
+            }
+        }
+    }
+}
+
+// --- МОБІЛЬНА ВЕРСІЯ (Media Query: @media (max-width: $breakpoint-desktop)) ---
+@media (max-width: 576px) {
+    .reward-cards {
+        padding: 40px 20px;
+
+        &__title {
+            margin-bottom: 30px;
+            font-size: 32px;
+        }
+        
+        &__content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            max-width: 400px;
+        }
+
+        .deposit-card {
+            width: 100%;
+            height: 228px;
+            padding-left: 20px; 
+            padding-right: 20px; 
+            padding-block: 20px;
+            // aspect-ratio: 328/228;
+            
+            &--1st, &--2nd, &--3rd, &--4th {
+                grid-area: auto;
+                text-align: left;
+                justify-content: flex-start;
+                @include mixin.fluid-prop(padding-block, 18px, 24px, 360px, 576px);
+                @include mixin.fluid-prop(padding-inline, 16px, 22px, 360px, 576px);
+            }
+            &--1st { 
+                .deposit-card__bcg {
+                    background-image: image-set(url(../../img/bg_1st_360_1x.webp) 1x, url(../../img/bg_1st_360_2x.webp) 2x);
+                }
+            }
+            &--2nd { 
+                .deposit-card__bcg {
+                    background-image: image-set(url(../../img/bg_2nd_360_1x.webp) 1x, url(../../img/bg_2nd_360_2x.webp) 2x);
+                }
+            }
+            &--3rd { 
+                .deposit-card__bcg {
+                    background-image: image-set(url(../../img/bg_3rd_360_1x.webp) 1x, url(../../img/bg_3rd_360_2x.webp) 2x);
+                }
+            }
+            &--4th { 
+                .deposit-card__bcg {
+                    background-image: image-set(url(../../img/bg_4th_360_1x.webp) 1x, url(../../img/bg_4th_360_2x.webp) 2x);
+                }
+            }
+
+            &__title {
+                margin-bottom: 14px;
+                font-size: clamp(24px, 1.665vw, 32px);
+            }
+            &__subtitle {
+                font-size: clamp(14px,4vw,16px);
+            }
+
+            &__description {
+              font-size: clamp(18px, .95vw, 24px); 
+            }
+
+            &__item {
+                font-size: clamp(14px,4vw,18px);
+            }
+
+            &__content-wrapper {
+                flex-basis: 100%;
+                padding: 0;
+            }
+            &__line {
+                width: 100%;
+            }
+        }
+    }
+}

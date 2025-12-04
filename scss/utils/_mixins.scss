@@ -1,0 +1,10 @@
+@use "sass:math";
+@mixin fluid-prop($prop, $min, $max, $minW: 360px, $maxW: 1920px) {
+  $slope: math.div($max - $min, ($maxW) - ($minW));
+
+  #{$prop}: clamp(
+    $min,
+    calc(#{$min} + (var(--content-vw, 100vw) - #{$minW}) * #{$slope}),
+    $max
+  );
+}

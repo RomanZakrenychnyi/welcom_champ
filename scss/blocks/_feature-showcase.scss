@@ -1,0 +1,290 @@
+@use "../utils/mixins" as mixin;
+
+// Загальні змінні
+$color-dark-bg: #14141A;
+$color-text-light: #ffffff;
+$color-text-faded: #8587A2;
+$color-accent-btn: #e0ff4f;
+$breakpoint-desktop: 900px;
+
+// Кольори для кроків
+$step-find-bg: #AE6BB5;
+$step-check-bg: #FD5022;
+$step-place-bg: #A9A71E;
+$step-win-bg: #AE6BB5; 
+
+.feature-showcase {
+    padding: 60px 20px;
+    background-color: $color-dark-bg;
+    color: $color-text-light;
+    font-family: 'Sofia Sans', sans-serif;
+    
+    &__title {
+        font-size: clamp(32px, 2.08vw, 40px);
+        font-weight: 900;
+        margin-bottom: 170px;
+        text-transform: uppercase;
+        text-align: center;
+    }
+
+    // --- ДЕСКТОПНА ВЕРСІЯ (БАЗОВІ СТИЛІ: CSS Grid) ---
+    &__content {
+        // ЗМІНЕНО: Дозволяємо центральній колонці бути гнучкішою,
+        // щоб картки могли зміщуватися ближче.
+        display: grid;
+        grid-template-columns: 1fr minmax(200px, 300px) 1fr;
+        grid-template-rows: auto auto;
+        // gap: 60px 100px; 
+        @include mixin.fluid-prop(row-gap, 0px, 60px, 576px, 1920px);
+        @include mixin.fluid-prop(column-gap, 50px, 100px, 576px, 1920px);
+        margin: 0 auto;
+        justify-content: center;
+    }
+
+    // Центральний елемент займає середину сітки
+    &__center-element {
+        grid-column: 2 / 3; 
+        grid-row: 1 / 3; 
+        max-width: 100%;
+        align-self: center;
+        justify-self: center;
+        scale: 1.4;
+        z-index: 10;
+
+        .mockup__image {
+            width: 100%;
+            height: auto;
+        }
+    }
+    
+    .step {
+        // Стилі для десктопу
+        position: relative;
+        height: 210px;
+        padding-right: 5px;
+        
+        width: 100%; // Обов'язково для роботи 1fr
+        border-radius: 10px;
+        background: #14141A;
+
+        &::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            border-radius: inherit;
+            pointer-events: none;
+        }
+
+        &::after {
+          content: "";
+          position: absolute;
+          inset: 1px;
+          border-radius: 9px;
+          pointer-events: none;
+          z-index: 0;
+        }
+
+        &__wrapper {
+          position: relative;
+          width: 100%;
+          height: 100%;
+          display: flex;
+          align-items: center;
+          justify-content: flex-start;
+          padding-left: clamp(40px,4.07vw,80px);
+          border-radius: 10px;
+          z-index: 1;
+        }
+        
+        &__number {
+            position: absolute;
+            top: -18px;
+            left: 30px;
+            display: inline-block;
+            padding: 4px 10px;
+            border-radius: 10px;
+            font-size: clamp(16px, 1.22vw, 24px);
+            font-weight: 400;
+            z-index: 2;
+        }
+
+        &__body {
+        }
+
+        &__title {
+          position: relative;
+          margin-bottom: 8px;
+          font-size: clamp(20px,1.65vw,32px);
+          font-weight: 700;        
+          &--find::before {
+            content: "⚽";
+            position: absolute;
+            top: 50%;
+            left: -40px;
+            transform: translateY(-50%);
+          }
+          &--check::before {
+            content: "🔥";
+            position: absolute;
+            top: 50%;
+            left: -40px;
+            transform: translateY(-50%);
+          }
+          &--place::before {
+            content: "💸";
+            position: absolute;
+            top: 50%;
+            left: -40px;
+            transform: translateY(-50%);
+          }
+          &--win::before {
+            content: "🏆";
+            position: absolute;
+            top: 50%;
+            left: -40px;
+            transform: translateY(-50%);
+          }
+        }
+
+        &__description {
+          font-size: clamp(16px, 0.95vw, 24px);
+          font-weight: 400;
+          color: $color-text-faded;
+        }
+        
+        // Позиціонування лівих карток (Колонка 1)
+        &--find { 
+            grid-area: 1 / 1 / 2 / 2; 
+            justify-content: flex-start;
+            .step__number {background: $step-find-bg;}
+
+            &::before {
+              background: linear-gradient(180deg, $step-find-bg, #3B3450);
+            }
+            &::after {
+              background: radial-gradient(ellipse 100% 150% at 130% 110%, $step-find-bg 0% 0%, #14141a 100% 100%);
+            }
+        }
+        &--check { 
+            grid-area: 2 / 1 / 3 / 2; 
+            justify-content: flex-start;
+            .step__number {background: $step-check-bg;}
+
+            &::before {
+              background: linear-gradient(180deg, $step-check-bg, #3B3450);
+            }
+            &::after {
+              background: radial-gradient(ellipse 100% 150% at 130% 110%, $step-check-bg 0% 0%, #14141a 100% 100%);
+            }
+        }
+        
+        // Позиціонування правих карток (Колонка 3)
+        &--place { 
+            grid-area: 1 / 3 / 2 / 4; 
+            justify-content: flex-start;
+
+            .step__number {
+                background: $step-place-bg;
+            }
+            .step__body { align-items: flex-end; }
+
+            &::before {
+              background: linear-gradient(180deg, $step-place-bg, #3B3450);
+            }
+            &::after {
+              background: radial-gradient(ellipse 100% 150% at 130% 110%, $step-place-bg 0% 0%, #14141a 100% 100%);
+            }
+        }
+
+        &--win { 
+            grid-area: 2 / 3 / 3 / 4; 
+            justify-content: flex-start;
+
+            .step__number {
+                background: $step-win-bg;
+            }
+            .step__body { align-items: flex-end; }
+
+            &::before {
+              background: linear-gradient(180deg, $step-win-bg, #3B3450);
+            }
+            &::after {
+              background: radial-gradient(ellipse 100% 150% at 130% 110%, $step-win-bg 0% 0%, #14141a 100% 100%);
+            }
+        }
+    }
+
+    // Стилі для кнопки
+    .add-to-betslip-btn {
+        display: block;
+        background-color: $color-accent-btn;
+        color: $color-dark-bg;
+        padding: 15px 10px;
+        border-radius: 8px;
+        text-decoration: none;
+        font-weight: bold;
+        font-size: 16px;
+    }
+    .betslip-odds {
+        display: block;
+        font-size: 12px;
+        font-weight: normal;
+        margin-top: 5px;
+    }
+}
+
+// --- МОБІЛЬНА ВЕРСІЯ (Media Query: @media (max-width: $breakpoint-desktop)) ---
+@media (max-width: $breakpoint-desktop) {
+    .feature-showcase {
+        padding: 40px 20px;
+
+        &__title {
+            margin-bottom: 30px;
+        }
+        
+        &__content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 30px;
+            max-width: 400px;
+        }
+        
+        &__center-element {
+            order: 5;
+            max-width: 300px;
+            scale: 1;
+        }
+
+        .step {
+            width: 100%;
+            max-height: none; 
+            height: 155px;
+            padding-left: 20px; 
+            padding-right: 20px; 
+            padding-block: 20px;
+            
+            &--find, &--check, &--place, &--win {
+                grid-area: auto;
+                text-align: left;
+                justify-content: flex-start;
+            }
+            
+            .step__body {
+                align-items: flex-start;
+            }
+
+            &__number {
+                top: -15px;
+                left: 16px; 
+                z-index: 2;
+            }
+            &__title {
+              font-size: clamp(24px,1.65vw,32px);
+            }
+            &__description {
+              font-size: clamp(18px, .95vw, 24px); 
+            }
+        }
+    }
+}

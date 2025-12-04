@@ -1,0 +1,240 @@
+@use "../utils/mixins" as mixin;
+
+.trickCard {
+  flex: 1 1 calc(20% - 0.01px);
+  max-width: calc(20% - 0.01px);
+  aspect-ratio: 344 / 249;
+  position: relative;
+  border-radius: 10px;
+  overflow: hidden;
+  background-color: #181920;
+
+  &::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    background: linear-gradient(180deg, var(--c1) 0%, #14141a 100%);
+    pointer-events: none;
+  }
+
+  &::after {
+    content: "";
+    position: absolute;
+    inset: 1px;
+    border-radius: calc(10px - 1px);
+    background: radial-gradient(
+      ellipse 86% 148% at 50% -20%,
+      var(--c1) 0% 20%,
+      #14141a 70% 100%
+    );
+    pointer-events: none;
+  }
+
+  &:nth-child(1) {
+    --c1: #fd5022;
+  }
+  &:nth-child(2) {
+    --c1: #a9a71e;
+  }
+  &:nth-child(3) {
+    --c1: #AE6BB5;
+  }
+  &:nth-child(4) {
+    --c1: #f5ab51;
+  }
+  &:nth-child(5) {
+    --c1: #bf2d37;
+  }
+
+  &__content {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    inset: 0;
+    border-radius: inherit;
+    display: flex;
+    flex-direction: column;
+    justify-content: end;
+
+    // padding: top / inline / bottom (1024 → 1920)
+    @include mixin.fluid-prop(padding-top, 8px, 44px, 1024px, 1920px);
+    @include mixin.fluid-prop(padding-inline, 2px, 4px, 1024px, 1920px);
+    @include mixin.fluid-prop(padding-bottom, 8px, 40px, 1024px, 1920px);
+  }
+
+  &__pic {
+    line-height: 0;
+    margin-top: 0;
+    margin-inline: auto;
+    // margin-bottom: 16 → 24 (1024 → 1920)
+    @include mixin.fluid-prop(margin-bottom, 10px, 24px, 1024px, 1920px);
+
+    // width: 36 → 55 (1024 → 1920)
+    @include mixin.fluid-prop(width, 26px, 55px, 1024px, 1920px);
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  &__img {
+    display: block;
+    width: 100%;
+    height: auto;
+  }
+
+  &__title {
+    // margin-bottom: 2 → 5 (1024 → 1920)
+    @include mixin.fluid-prop(margin-bottom, 2px, 5px, 1024px, 1920px);
+
+    font-family: "Sofia Sans", system-ui, sans-serif;
+    font-weight: 400;
+    text-align: center;
+    // font-size: 14 → 18 (1024 → 1920)
+    @include mixin.fluid-prop(font-size, 13px, 18px, 1024px, 1920px);
+
+    line-height: 1.1;
+    color: #fff;
+    opacity: 0.7;
+  }
+
+  &__info {
+    font-family: "Sofia Sans", system-ui, sans-serif;
+    font-weight: 700;
+    text-align: center;
+    // font-size: 18 → 24 (1024 → 1920)
+    @include mixin.fluid-prop(font-size, 15px, 24px, 1024px, 1920px);
+
+    line-height: 1.1;
+    color: #fff;
+  }
+}
+
+@media (max-width: 1023px) {
+  .trickCard {
+    flex: 1 1 calc(31% - 0.01px);
+    max-width: calc(31% - 0.01px);
+
+    &__content {
+      // padding: top / inline / bottom (576 → 1023)
+      @include mixin.fluid-prop(padding-top, 8px, 44px, 576px, 1023px);
+      @include mixin.fluid-prop(padding-inline, 2px, 4px, 576px, 1023px);
+      @include mixin.fluid-prop(padding-bottom, 8px, 40px, 576px, 1023px);
+    }
+
+    &__pic {
+      margin-top: 0;
+      margin-inline: auto;
+      // margin-bottom: 12 → 24 (576 → 1023)
+      @include mixin.fluid-prop(margin-bottom, 12px, 24px, 576px, 1023px);
+
+      // width: 36 → 55 (576 → 1023)
+      @include mixin.fluid-prop(width, 36px, 55px, 576px, 1023px);
+
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    &__img {
+      width: 100%;
+      height: auto;
+    }
+
+    &__title {
+      // margin-bottom: 2 → 5 (576 → 1023)
+      @include mixin.fluid-prop(margin-bottom, 2px, 5px, 576px, 1023px);
+
+      font-family: "Sofia Sans", system-ui, sans-serif;
+      font-weight: 400;
+      text-align: center;
+
+      // font-size: 14 → 18 (576 → 1023)
+      @include mixin.fluid-prop(font-size, 14px, 18px, 576px, 1023px);
+
+      line-height: 1.1;
+      color: #fff;
+    }
+
+    &__info {
+      font-family: "Sofia Sans", system-ui, sans-serif;
+      font-weight: 700;
+      text-align: center;
+
+      // font-size: 18 → 24 (576 → 1023)
+      @include mixin.fluid-prop(font-size, 18px, 24px, 576px, 1023px);
+
+      line-height: 1.1;
+      color: #fff;
+    }
+  }
+}
+
+@media (max-width: 576px) {
+  .trickCard {
+    // flex: 1 1 100%;
+    // max-width: 100%;
+    flex: 1 1 calc(50%);
+    max-width: calc(50% - 5px);
+    &:nth-last-child(1):nth-child(odd) {
+      flex: 1 1 100%;
+      max-width: 100%;
+      aspect-ratio: 328 / 130;
+    }
+
+    &__content {
+      // padding: top / inline / bottom (360 → 576)
+      // @include mixin.fluid-prop(padding-top, 8px, 44px, 360px, 576px);
+      // @include mixin.fluid-prop(padding-inline, 2px, 4px, 360px, 576px);
+      // @include mixin.fluid-prop(padding-bottom, 8px, 40px, 360px, 576px);
+    }
+
+    &__pic {
+      margin-top: 0;
+      margin-inline: auto;
+      // margin-bottom: 12 → 24 (360 → 576)
+      @include mixin.fluid-prop(margin-bottom, 12px, 24px, 360px, 576px);
+
+      // width: 24 → 55 (360 → 576)
+      @include mixin.fluid-prop(width, 24px, 55px, 360px, 576px);
+
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    &__img {
+      width: 100%;
+      height: auto;
+    }
+
+    &__title {
+      // margin-bottom: 2 → 5 (360 → 576)
+      @include mixin.fluid-prop(margin-bottom, 2px, 5px, 360px, 576px);
+
+      font-family: "Sofia Sans", system-ui, sans-serif;
+      font-weight: 400;
+      text-align: center;
+
+      // font-size: 14 → 18 (360 → 576)
+      @include mixin.fluid-prop(font-size, 14px, 18px, 360px, 576px);
+
+      line-height: 1.1;
+      color: #fff;
+    }
+
+    &__info {
+      font-family: "Sofia Sans", system-ui, sans-serif;
+      font-weight: 700;
+      text-align: center;
+
+      // font-size: 18 → 24 (360 → 576)
+      @include mixin.fluid-prop(font-size, 18px, 24px, 360px, 576px);
+
+      line-height: 1.1;
+      color: #fff;
+    }
+  }
+}

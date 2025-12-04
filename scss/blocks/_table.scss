@@ -1,0 +1,194 @@
+@use "../utils/mixins" as mixin;
+
+$breakpoint-mobile: 767px;
+
+.table {
+  margin-inline: -16px;
+  background-image: image-set(
+    url("/img/eclips@1x.webp") 1x,
+    url("/img/eclips@2x.webp") 2x
+  );
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+
+  &__wrapper {
+    margin-inline: 16px;
+  }
+
+  &__title {
+    font-size: clamp(32px, 2.06vw, 40px);
+    font-weight: 900;
+    text-align: center;
+    text-transform: uppercase;
+    margin-bottom: 50px;
+  }
+
+  &__container {
+    position: relative;
+    border-radius: 10px;
+    container-type: inline-size;
+    background: #181921;
+    padding: 10px;
+    max-width: 860px;
+    margin: 0 auto;
+    // Псевдоелемент для "градієнтного бордера"
+    &::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      border-radius: inherit;
+      background: linear-gradient(
+        180deg,
+        #f4aa50 0%,
+        rgba(244, 170, 80, 0) 100%
+      );
+      pointer-events: none;
+      z-index: 1;
+    }
+
+    // Внутрішній шар (щоб колір фону не затирав бордер)
+    &::after {
+      content: "";
+      position: absolute;
+      inset: 1px;
+      border-radius: calc(10px - 1px);
+      background: #181921;
+      z-index: 2;
+    }
+
+    // Контент поверх
+    > * {
+      position: relative;
+      z-index: 3;
+    }
+    > :not(.table__decorImg) {
+      position: relative;
+      z-index: 3;
+    }
+  }
+
+  &__decorImg {
+    position: absolute;
+    width: clamp(120px, 30cqi, 265px);
+    aspect-ratio: 265/281;
+    overflow: visible;
+    z-index: 4;
+    pointer-events: none;
+    & > img {
+      position: absolute;
+      width: inherit;
+      aspect-ratio: inherit;
+      display: block;
+    }
+    &--1 {
+      left: 0;
+      bottom: 0;
+      transform: translate(
+        clamp(-50%, calc(-50% + ((50 - 70) * ((100vw - 360px) / (1366 - 360)))), -70%),
+        clamp(40%, calc(40% + ((2 - 40) * ((100vw - 360px) / (1366 - 360)))), 2%)
+      );
+    }
+    &--2 {
+      right: 0;
+      top: 0;
+      width: clamp(110px, 28cqi, 240px);
+      transform: translate(18%, -40%);
+      aspect-ratio: 80/67;
+      z-index: 0;
+    }
+  }
+
+  @media (max-width: $breakpoint-mobile) {
+    background-image: none;
+
+    &__title {
+      margin-bottom: 30px;
+      font-size: clamp(29px, 3.06vw, 60px);
+    }
+  }
+
+  @media (max-width: 1366px) {
+    .table {
+      &__decorImg {
+        width: 265px;
+        @include mixin.fluid-prop(width, 120px, 265px, 577px, 1366px);
+      }
+    }
+  }
+  @media (max-width: 576px) {
+    background-image: image-set(
+      url("/img/eclips_360@1x.webp") 1x,
+      url("/img/eclips_360@2x.webp") 2x
+    );
+    padding-block: 120px;
+  }
+}
+
+.prize-table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 2px;
+  color: #fff;
+  text-align: center;
+  border-radius: 6px;
+  overflow: hidden;
+
+  .place-column,
+  .prize-column {
+    color: #fff;
+    font-size: clamp(18px, 1.238vw, 24px);
+    font-weight: 700;
+    background-color: #ffffff1a;
+    border-radius: 6px;
+    padding-block: 21px;
+  }
+
+  .medal-img {
+    margin: 0 auto;
+    width: 32px;
+    height: 32px;
+  }
+
+  .medal-cell {
+    &:nth-child(-n + 3),
+    &:nth-child(-n + 3) + td {
+      background-color: #ffffff0d;
+      border-radius: 6px;
+    }
+
+    &:nth-child(-n + 3) {
+      padding-block: 8px;
+    }
+  }
+
+  &__body {
+    td {
+      color: #fff;
+      font-size: clamp(16px, 0.929vw, 18px);
+      font-weight: 400;
+      padding-block: 16px;
+      background-color: #ffffff05;
+      border-radius: 6px;
+    }
+
+    tr:first-child td {
+      border-top: 3px solid transparent;
+    }
+
+    &--accent {
+      color: #bfbfcb;
+    }
+  }
+
+  @media (max-width: $breakpoint-mobile) {
+    .place-column,
+    .prize-column {
+      padding-block: 16px;
+    }
+
+    &__body td {
+      padding-block: 11px;
+    }
+  }
+}

@@ -1,0 +1,40 @@
+@use "../utils/mixins" as mixin;
+
+.trick {
+  &__title {
+    text-align: center;
+    font-size: 40px;
+    font-style: normal;
+    font-weight: 900;
+    line-height: normal;
+    text-transform: uppercase;
+    margin-bottom: 50px;
+  }
+  &__content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+    align-self: stretch;
+  }
+}
+
+@media (max-width: 1023px) {
+  .trick {
+    &__title{
+      @include mixin.fluid-prop(font-size, 32px, 40px, 360px, 1023px);
+    }
+    &__content {
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+  }
+}
+
+@media (max-width: 576px) {
+  .trick {
+    &__content {
+      gap: 10px;
+    }
+  }
+}

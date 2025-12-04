@@ -1,0 +1,713 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Sofia+Sans+Condensed:ital,wght@0,1..1000;1,1..1000&family=Sofia+Sans+Extra+Condensed:ital,wght@0,1..1000;1,1..1000&family=Sofia+Sans:ital,wght@0,1..1000;1,1..1000&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/css/style.css" />
+    <title>SPIN PREMIERE</title>
+  </head>
+  <style>
+    body {
+      display: grid;
+      grid-template-columns: var(--desktop-menu-width) 1fr;
+    }
+    @media (max-width: 1023px) {
+      body {
+        display: initial;
+      }
+    }
+  </style>
+  <body>
+    <div class="helpcontainer"></div>
+    <div class="mainContainer">
+      <section class="banner">
+        <picture>
+          <source
+            srcset="/img/banner_360_1x.webp 1x, /img/banner_360_2x.webp 2x"
+            type="image/webp"
+            media="(max-width: 576px)"
+          />
+
+          <source
+            srcset="/img/banner_1366_1x.webp 1x, /img/banner_1366_2x.webp 2x"
+            media="(max-width: 1366px)"
+          />
+
+          <source
+            srcset="/img/banner_1920_1x.webp 1x, /img/banner_1920_2x.webp 2x"
+            type="image/webp"
+          />
+          <img
+            class="banner__img"
+            src="/img/banner_1920_1x.webp"
+            alt="Halloween Prize Drops Banner"
+            loading="lazy"
+            decoding="async"
+          />
+        </picture>
+        <div class="banner__content">
+          <div class="banner__items">
+            <!-- <picture>
+              <source
+                srcset="
+                  /img/gameLogo_576_1x.webp 1x,
+                  /img/gameLogo_576_1x.webp 2x
+                "
+                type="image/webp"
+                media="(max-width: 576px)"
+              />
+              <source
+                srcset="
+                  /img/gameLogo_1920_1x.webp 1x,
+                  /img/gameLogo_1920_2x.webp 2x
+                "
+                media="(max-width: 1366px)"
+              />
+              <source
+                srcset="
+                  /img/gameLogo_1920_1x.webp 1x,
+                  /img/gameLogo_1920_2x.webp 2x
+                "
+                type="image/webp"
+              />
+              <img
+                class="banner__customLogo"
+                src="/img/gameLogo_1920_1x.png"
+                alt="Game logo"
+                loading="lazy"
+                decoding="async"
+              />
+            </picture> -->
+            <h2
+              class="banner__title"
+              data-max-size="72"
+              data-min-size="20"
+              data-lines="1"
+              data-max-size-mob="60"
+              data-min-size-mob="40"
+              data-lines-mob="2"
+              data-lh-ratio="1"
+              data-scale="1"
+              data-scale-mob="1"
+            >
+              Be the Champion!
+            </h2>
+            <p
+              class="banner__subtitle"
+              data-max-size="24"
+              data-min-size="9"
+              data-lines="1"
+              data-max-size-mob="24"
+              data-min-size-mob="18"
+              data-lines-mob="1"
+              data-lh-ratio="1"
+              data-scale="1"
+            >
+              <span class="banner__subtitle--third">Max bonus: <span class="banner__subtitle--accent">Up to 3 000 EUR+ 165 Freespins</span> no wager</span>
+            </p>
+          </div>
+          <a
+            class="btn banner__btn"
+            href="/welcome-champ/?from=header-desktop&page-in-modal=%2Fdeposit-modal%2F"
+            >Claim Bonus</a 
+          >
+        </div>
+      </section>
+      <section class="how_2 sec-top-spacing">
+        <div class="how_2__title">HOW TO CLAIM<br class="line_break">YOUR BONUS?</div>
+        <div class="how_2__content">
+          <div class="howCard_2">
+            <div class="howCard_2__content">
+              <div class="howCard_2__counter">
+                <div class="howCard_2__number">01</div>
+                <div class="howCard_2__svg">
+                  <svg class="howCard_2__svg-icon">
+                    <use href="./img/star.svg"></use>
+                  </svg>
+                </div>
+              </div>
+              <div>
+                <div class="howCard_2__title" style="--bg:#AE6BB5;">Choose Bonus</div>
+                <p class="howCard_2__info">
+                  Choose your welcome reward on deposit page
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="howCard_2">
+            <div class="howCard_2__content">
+              <div class="howCard_2__counter">
+                <div class="howCard_2__number">02</div>
+                <div class="howCard_2__svg">
+                  <svg class="howCard_2__svg-icon">
+                    <use href="./img/money.svg"></use>
+                  </svg>
+                </div>
+              </div>
+              <div>
+                <div class="howCard_2__title" style="--bg:#A9A71E;">Deposit from 15 EUR</div>
+                <p class="howCard_2__info">
+                  Top up your balance and unlock the bonus
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="howCard_2">
+            <div class="howCard_2__content">
+              <div class="howCard_2__counter">
+                <div class="howCard_2__number">03</div>
+                <div class="howCard_2__svg">
+                  <svg class="howCard_2__svg-icon">
+                    <use href="./img/card.svg"></use>
+                  </svg>
+                </div>
+              </div>
+              <div>
+                <div class="howCard_2__title" style="--bg:#FD5022;">Enjoy your rewards</div>
+                <p class="howCard_2__info">
+                  Use your bonus + free spins to win big!
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <a href="/welcome-champ/?from=header-desktop&page-in-modal=%2Fdeposit-modal%2F" class="btn banner__btn how_2__btn">Get Started</a>
+      </section>
+      <!-- <section class="feature-showcase">
+        <h2 class="feature-showcase__title">HOW TO JOIN?</h2>
+
+        <div class="feature-showcase__content">
+
+            <div class="step step--find">
+              <span class="step__number">01 Find</span>
+              <div class="step__wrapper">
+                <div class="step__body">
+                  <h3 class="step__title step__title--find">Multiple of the Day</h3>
+                  <p class="step__description">Available daily in the Sports section and right in your betslip!</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="step step--check">
+              <span class="step__number">02 Check</span>
+              <div class="step__wrapper">
+                <div class="step__body">
+                  <h3 class="step__title step__title--check">The boosted combo</h3>
+                  <p class="step__description">See the selected events combined with higher odds</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="step step--place">
+              <span class="step__number">03 Place</span>
+              <div class="step__wrapper">
+                <div class="step__body">
+                  <h3 class="step__title step__title--place">Your bet in one click</h3>
+                  <p class="step__description">Just tap "Add to Betslip" — your multiple is ready</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="step step--win">
+              <span class="step__number">04 Win</span>
+              <div class="step__wrapper">
+                <div class="step__body">
+                  <h3 class="step__title step__title--win">With extra odds</h3>
+                  <p class="step__description">If all events in the combo win, you get boosted winnings automatically</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="feature-showcase__center-element">
+                <picture>
+                    <source 
+                        media="(max-width: 360px)" 
+                        srcset="./img/phone_360_1x.webp 1x, ./img/phone_360_2x.webp 2x" 
+                        type="image/webp"
+                    />
+                    <source 
+                        media="(max-width: 1366px)" 
+                        srcset="./img/phone_1366_1x.webp 1x, ./img/phone_1366_2x.webp 2x" 
+                        type="image/webp"
+                    />
+                    <img 
+                        src="./img/phone_1x.webp" 
+                        srcset="./img/phone_2x.webp 2x" 
+                        alt="Mobile app screenshot" 
+                        class="mockup__image"
+                    />
+                </picture>
+                <a href="/sports/" class="btn btn__second btn--desktop">
+                    <span>ADD TO BETSLIP</span>
+                    <span class="btn__odds">The Overall Odds: <span class="btn__odds--accent">3.68</span></span>
+                </a>
+                <a href="/sports/multiple-day/" class="btn btn__second btn--mobile">
+                    <span>ADD TO BETSLIP</span>
+                    <span class="btn__odds">The Overall Odds: <span class="btn__odds--accent">3.68</span></span>
+                </a>
+            </div>
+
+        </div>
+      </section> -->
+       <section class="reward-cards">
+        <h2 class="reward-cards__title">Your rewards<br class="br"> for each deposit</h2>
+
+        <div class="reward-cards__content">
+
+            <div class="deposit-card deposit-card--1st">
+              <div class="deposit-card__content-wrapper">
+                <div>
+                  <h3 style="--c:#EB3016" class="deposit-card__title">1st Deposit</h3>
+                  <p class="deposit-card__subtitle">Deposit at least <span class="deposit-card--accent">15 EUR</span> <br>to get: <span class="deposit-card--accent">170% + 35 FS</span></p>
+                </div>
+                <div class="deposit-card__line"></div>
+                <ul class="deposit-card__list">
+                  <li class="deposit-card__item">Wagering requirement for bonus is x35</li>
+                  <li class="deposit-card__item">Max bonus is 1000 EUR</li>
+                  <li class="deposit-card__item">Wagering requirement for FS is x0</li>
+                </ul>
+              </div>
+              <div class="deposit-card__bcg"></div>
+            </div>
+
+            <div class="deposit-card deposit-card--2nd">
+              <div class="deposit-card__content-wrapper">
+                <div>
+                  <h3 style="--c:#F5AB51" class="deposit-card__title">2nd Deposit</h3>
+                  <p class="deposit-card__subtitle">Deposit at least <span class="deposit-card--accent">15 EUR</span> <br>to get: <span class="deposit-card--accent">100% + 45 FS</span></p>
+                </div>
+                <div class="deposit-card__line"></div>
+                <ul class="deposit-card__list">
+                  <li class="deposit-card__item">Wagering requirement for bonus is x40</li>
+                  <li class="deposit-card__item">Max bonus is 500 EUR</li>
+                  <li class="deposit-card__item">Wagering requirement for FS is x0</li>
+                </ul>
+              </div>
+              <div class="deposit-card__bcg"></div>
+            </div>
+
+            <div class="deposit-card deposit-card--3rd">
+              <div class="deposit-card__content-wrapper">
+                <div>
+                  <h3 style="--c:#AE6BB5" class="deposit-card__title">3rd Deposit</h3>
+                  <p class="deposit-card__subtitle">Deposit at least <span class="deposit-card--accent">15 EUR</span> <br>to get: <span class="deposit-card--accent">150% + 35 FS</span></p>
+                </div>
+                <div class="deposit-card__line"></div>
+                <ul class="deposit-card__list">
+                  <li class="deposit-card__item">Wagering requirement for bonus is x35</li>
+                  <li class="deposit-card__item">Max bonus is 500 EUR</li>
+                  <li class="deposit-card__item">Wagering requirement for FS is x0</li>
+                </ul>
+              </div>
+              <div class="deposit-card__bcg"></div>
+            </div>
+
+            <div class="deposit-card deposit-card--4th">
+              <div class="deposit-card__content-wrapper">
+                <div>
+                  <h3 style="--c:#A9A71E" class="deposit-card__title">4th Deposit</h3>
+                  <p class="deposit-card__subtitle">Deposit at least <span class="deposit-card--accent">15 EUR</span> <br>to get: <span class="deposit-card--accent">160% + 50 FS</span></p>
+                </div>
+                <div class="deposit-card__line"></div>
+                <ul class="deposit-card__list">
+                  <li class="deposit-card__item">Wagering requirement for bonus is x35</li>
+                  <li class="deposit-card__item">Max bonus is 1000 EUR</li>
+                  <li class="deposit-card__item">Wagering requirement for FS is x0</li>
+                </ul>
+              </div>
+              <div class="deposit-card__bcg"></div>
+            </div>
+        </div>
+      </section>
+      <!-- <section class="tournament sec-top-padding-spacing sec-bottom-padding-spacing">
+          <div class="tournament__wrapper">
+            <h2 class="tournament__title">
+              Join the tournament and explore our latest slot releases
+            </h2>
+            <p class="tournament__subtitle">
+              Play for your chance to win a share of
+              <span class="tournament__subtitle--accent"
+                >1,000 Free Spins!</span
+              >
+            </p>
+          </div>
+          <div class="slots">
+            <div class="slots__event">
+              <div
+                class="slots__icon"
+                style="--slots-icon: #ae6bb5; width: 32px; height: 32px"
+              >
+                <img src="/img/clock.svg" alt="" width="32" height="32" />
+              </div>
+              <p class="slots__event-text">Limited-Time Event</p>
+            </div>
+            <div class="slots__event">
+              <div
+                class="slots__icon"
+                style="--slots-icon: #a9a71e; width: 32px; height: 32px"
+              >
+                <img src="/img/gamepad.svg" alt="" width="32" height="32" />
+              </div>
+              <p class="slots__event-text">New Games Only</p>
+            </div>
+            <div class="slots__event">
+              <div
+                class="slots__icon"
+                style="--slots-icon: #ec6b55; width: 32px; height: 32px"
+              >
+                <img src="/img/gift.svg" alt="" width="32" height="32" />
+              </div>
+              <p class="slots__event-text">No Wagering on Prizes</p>
+            </div>
+          </div>
+      </section> -->
+      <!-- <section class="trick">
+        <h3 class="trick__title">How to Participate</h3>
+        <div class="trick__content">
+          <div class="trickCard">
+            <div class="trickCard__content">
+              <div class="trickCard__pic">
+                <img
+                  class="trickCard__img"
+                  src="/img/trickImg_1.webp"
+                  alt="Prize fund"
+                />
+              </div>
+              <div class="trickCard__title">Prize fund</div>
+              <div class="trickCard__info">1000 FS</div>
+            </div>
+          </div>
+          <div class="trickCard">
+            <div class="trickCard__content">
+              <div class="trickCard__pic">
+                <img
+                  class="trickCard__img"
+                  src="/img/trickImg_2.webp"
+                  alt="Qualification"
+                />
+              </div>
+              <div class="trickCard__title">Qualification</div>
+              <div class="trickCard__info">No</div>
+            </div>
+          </div>
+          <div class="trickCard">
+            <div class="trickCard__content">
+              <div class="trickCard__pic">
+                <img
+                  class="trickCard__img"
+                  src="/img/trickImg_3.webp"
+                  alt="Min bet"
+                />
+              </div>
+              <div class="trickCard__title">Min bet</div>
+              <div class="trickCard__info">€0.1</div>
+            </div>
+          </div>
+          <div class="trickCard">
+            <div class="trickCard__content">
+              <div class="trickCard__pic">
+                <img
+                  class="trickCard__img"
+                  src="/img/trickImg_4.webp"
+                  alt="Mechanic"
+                />
+              </div>
+              <div class="trickCard__title">Mechanic</div>
+              <div class="trickCard__info">Tournament</div>
+            </div>
+          </div>
+          <div class="trickCard">
+            <div class="trickCard__content">
+              <div class="trickCard__pic">
+                <img
+                  class="trickCard__img"
+                  src="/img/trickImg_5.webp"
+                  alt="Period"
+                />
+              </div>
+              <div class="trickCard__title">Period</div>
+              <div class="trickCard__info">28.10 - 30.10</div>
+            </div>
+          </div>
+        </div>
+      </section> -->
+      <!-- <section class="table sec-top-padding-spacing sec-bottom-padding-spacing">
+        <div class="table__wrapper">
+          <h2 class="table__title">Prize table</h2>
+          <div class="table__container">
+            <picture
+              class="table__decorImg table__decorImg--1"
+              aria-hidden="true"
+            >
+              <source
+                srcset="
+                  /img/tableDecor_1_1x.webp 1x,
+                  /img/tableDecor_1_2x.webp 2x
+                "
+                type="image/webp"
+              />
+              <img
+                src="/img/tableDecor_1_1x.webp"
+                alt=""
+                loading="lazy"
+                decoding="async"
+              /> </picture
+            ><picture
+              class="table__decorImg table__decorImg--2"
+              aria-hidden="true"
+            >
+              <source
+                srcset="
+                  /img/tableDecor_2_1x.webp 1x,
+                  /img/tableDecor_2_2x.webp 2x
+                "
+                type="image/webp"
+              />
+              <img
+                class="table__decorImg table__decorImg--2"
+                src="/img/tableDecor_2_1x.webp"
+                alt=""
+                loading="lazy"
+                decoding="async"
+              />
+            </picture>
+            <table class="prize-table">
+              <thead class="prize-table__head">
+                <tr>
+                  <th class="place-column">From place</th>
+                  <th class="prize-column">Free Spins</th>
+                </tr>
+              </thead>
+              <tbody class="prize-table__body">
+                <tr style="height: 1px"></tr>
+                <tr>
+                  <td data-label="From place" class="medal-cell">
+                    <picture class="medal-picture">
+                      <source
+                        srcset="/img/gold@1x.webp 1x, /img/gold@2x.webp 2x"
+                        type="image/webp"
+                      />
+                      <img
+                        src="/img/gold@1x.webp"
+                        alt="Gold medal"
+                        class="medal-img"
+                      />
+                    </picture>
+                  </td>
+                  <td data-label="Prize, EUR" class="prize-table__body--accent">
+                    300
+                  </td>
+                </tr>
+
+                <tr>
+                  <td data-label="From place" class="medal-cell">
+                    <picture class="medal-picture">
+                      <source
+                        srcset="/img/silver@1x.webp 1x, /img/silver@2x.webp 2x"
+                        type="image/webp"
+                      />
+                      <img
+                        src="/img/silver@1x.webp"
+                        alt="Silver medal"
+                        class="medal-img"
+                      />
+                    </picture>
+                  </td>
+                  <td data-label="Prize, EUR">250</td>
+                </tr>
+
+                <tr>
+                  <td data-label="From place" class="medal-cell">
+                    <picture class="medal-picture">
+                      <source
+                        srcset="/img/bronze@1x.webp 1x, /img/bronze@2x.webp 2x"
+                        type="image/webp"
+                      />
+                      <img
+                        src="/img/bronze@1x.webp"
+                        alt="Bronze medal"
+                        class="medal-img"
+                      />
+                    </picture>
+                  </td>
+                  <td data-label="Prize, EUR">200</td>
+                </tr>
+
+                <tr>
+                  <td data-label="From place">4</td>
+                  <td data-label="Prize, EUR" class="prize-table__body--accent">
+                    150
+                  </td>
+                </tr>
+                <tr>
+                  <td data-label="From place">5</td>
+                  <td data-label="Prize, EUR" class="prize-table__body--accent">
+                    100
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section> -->
+      <!-- <section class="accordion">
+        <div class="accordion__background">
+          <h2 class="accordion__title">Terms & Conditions</h2>
+          <div class="accordion__wrapper">
+            <div class="accordion__content">
+              <button class="accordion__btn" onclick="toggleAccordion(this)">
+                <div class="accordion__finger-wrapper">
+                  <img src="/img/finger.webp" alt="finger" />
+                  <p class="accordion__btnText">Open Conditions</p>
+                </div>
+                <div class="accordion__btnImg">
+                  <img class="accordion__svg" src="/img/plus.svg" alt="" />
+                </div>
+              </button>
+              <div class="accordion__panel">
+                <div class="accordion__panelBottom">
+                  <ul class="accordion__list">
+                    <li>
+                      From
+                      <span class="accordion__list-text--white"
+                        >27.10.2025 08:00 UTC - 30.10.2025 20:59 UTC</span
+                      >.
+                    </li>
+                    <li>The Total Prize Pool for the tournament is 1000 FS.</li>
+                    <li>
+                      Enjoy
+                      <span class="accordion__list-text--white"
+                        >FREE SPINS</span
+                      >
+                      with absolutely
+                      <span class="accordion__list-text--white"
+                        >NO WAGERING</span
+                      >
+                      requirements!
+                    </li>
+                    <li>
+                      In case of a win, make sure
+                      <span class="accordion__list-text--white"
+                        >EUR is chosen as the currency to use your Free
+                        Spins</span
+                      >.
+                    </li>
+                    <li>
+                      Qualification:
+                      <span class="accordion__list-text--white">NO</span>
+                    </li>
+                    <li>
+                      <span class="accordion__list-text--white"
+                        >The minimum bet is €0.1.</span
+                      >
+                    </li>
+                    <li>
+                      Win criteria:
+                      <span class="accordion__list-text--white"
+                        >multiplier win</span
+                      >.
+                    </li>
+                    <li>
+                      CLAPS reserves the right to credit the prizes in any
+                      Cryptocurrency equal to or the same value as the EUR
+                      prize, equal to or the same value as the EUR prize.
+                    </li>
+                    <li>
+                      <span class="accordion__list-text--white"
+                        >CLAPS reserves the right to amend the promotion rules
+                        at any time.</span
+                      >
+                    </li>
+                    <li>
+                      CLAPS reserves the right to disqualify any participant
+                      found to be breaking the terms of service.
+                    </li>
+                    <li>
+                      If you are found multi-accounting, none of your affiliated
+                      accounts will be eligible for the prize and will be banned
+                      from being able to participate in future promotions.
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section> -->
+      <section class="banner sec-top-spacing">
+        <picture>
+          <source
+            srcset="/img/banner_2_360_1x.webp 1x, /img/banner_2_360_2x.webp 2x"
+            type="image/webp"
+            media="(max-width: 576px)"
+          />
+          <source
+            srcset="
+              /img/banner_2_1366_1x.webp 1x,
+              /img/banner_2_1366_2x.webp 2x
+            "
+            media="(max-width: 1366px)"
+          />
+          <source
+            srcset="
+              /img/banner_2_1920_1x.webp 1x,
+              /img/banner_2_1920_2x.webp 2x
+            "
+            type="image/webp"
+          />
+          <img
+            class="banner__img"
+            src="/img/banner_2_1920_1x.webp"
+            alt="Halloween Prize Drops Banner"
+            loading="lazy"
+            decoding="async"
+          />
+        </picture>
+        <div class="banner__content banner__content--third">
+          <div class="banner__items">
+            <h2
+              class="banner__title banner__title--third"
+              data-max-size="40"
+              data-min-size="20"
+              data-lines="2"
+              data-scale="1"
+              data-max-size-mob="40"
+              data-min-size-mob="24"
+              data-lines-mob="2"
+              data-scale-mob="1"
+              data-lh-ratio="1"
+            >
+              Ready to play<br> like a champion?
+            </h2>
+            <p
+              class="banner__subtitle banner__subtitle--third"
+              data-max-size="18"
+              data-min-size="9"
+              data-lines="2"
+              data-max-size-mob="24"
+              data-min-size-mob="18"
+              data-lines-mob="2"
+              data-lh-ratio="1"
+              data-scale="1"
+            >
+              Your bonus pack is waiting — <br>grab it today.
+            </p>
+          </div>
+          <a
+            class="btn banner__btn banner__btn--second"
+            href="/welcome-champ/?from=header-desktop&page-in-modal=%2Fdeposit-modal%2F"
+            >Claim Bonus</a
+          >
+        </div>
+      </section>
+    </div>
+
+    <script type="module" src="/js/main.js"></script>
+  </body>
+</html>

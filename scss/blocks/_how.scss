@@ -1,0 +1,53 @@
+@use "../utils/mixins" as mixin;
+
+.how_2 {
+  &__title {
+    text-align: center;
+    font-family: "Sofia Sans Condensed", sans-serif;
+    font-size: 40px;
+    font-style: normal;
+    font-weight: 900;
+    line-height: normal;
+    text-transform: uppercase;
+    margin-bottom: 50px;
+    letter-spacing: 1px;
+  }
+  &__content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    @include mixin.fluid-prop(gap, 22px, 60px, 1367px, 1920px);
+    align-self: stretch;
+  }
+}
+
+@media (max-width: 1367px) {
+  .how_2 {
+    &__content {
+      @include mixin.fluid-prop(gap, 10px, 22px, 576px, 1366px);
+    }
+  }
+}
+
+@media (max-width: 1023px) {
+  .how_2 {
+    &__title{
+      @include mixin.fluid-prop(font-size, 32px, 40px, 360px, 1023px);
+    }
+    &__content {
+      flex-wrap: wrap;
+      justify-content: space-between;
+    }
+  }
+}
+
+@media (max-width: 576px) {
+  .how_2 {
+    &__title {
+      margin-bottom: 30px;
+    }
+    &__content {
+      gap: 10px;
+    }
+  }
+}

@@ -1,0 +1,35 @@
+{
+  "name": "welcome_champ",
+  "version": "1.0.0",
+  "description": "Custom build pipeline for HTML, CSS, and JS bundling",
+  "type": "module",
+  "main": "script.js",
+  "scripts": {
+    "build": "node build.mjs",
+    "dev": "node build.mjs --dev"
+  },
+  "author": "Vitalii Skyrtach",
+  "license": "ISC",
+  "devDependencies": {
+    "esbuild": "^0.24.2",
+    "html-minifier-terser": "^7.2.0"
+  },
+  "dependencies": {
+    "acorn": "^8.15.0",
+    "buffer-from": "^1.1.2",
+    "camel-case": "^4.1.2",
+    "clean-css": "^5.3.3",
+    "commander": "^10.0.1",
+    "dot-case": "^3.0.4",
+    "entities": "^4.5.0",
+    "lower-case": "^2.0.2",
+    "no-case": "^3.0.4",
+    "param-case": "^3.0.4",
+    "pascal-case": "^3.1.2",
+    "relateurl": "^0.2.7",
+    "source-map": "^0.6.1",
+    "source-map-support": "^0.5.21",
+    "terser": "^5.44.0",
+    "tslib": "^2.8.1"
+  }
+}

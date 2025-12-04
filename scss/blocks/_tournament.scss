@@ -1,0 +1,87 @@
+$breakpoint-mobile: 767px;
+
+.tournament {
+  width: 100%;
+    //   background-image: image-set(
+    //   url("/img/tournamentBg_1920_1x.webp") 1x,
+    //   url("/img/tournamentBg_1920_2x.webp") 2x
+    // );
+    // background-repeat: no-repeat;
+    // background-size: cover;
+    // background-position: center;
+}
+
+.tournament__wrapper {
+  margin: 0 auto;
+  margin-bottom: 50px;
+  width: 100%;
+  max-width: 860px;
+  text-align: center;
+}
+
+.tournament__title {
+  font-size: clamp(32px, 2.06vw, 40px);
+  font-weight: 900;
+  text-align: center;
+  text-transform: uppercase;
+  margin: 0  auto 20px;
+  max-width: 736px;
+}
+
+.tournament__subtitle {
+  color: #bfbfcb;
+  font-size: 16px;
+  font-weight: 400;
+}
+
+.tournament__subtitle--accent {
+  color: #ffffff;
+  font-weight: 700;
+}
+
+.slots {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 35px;
+}
+
+.slots__event {
+  width: 300px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 24px;
+}
+
+.slots__event-text {
+  color: #ffffff;
+  font-size: clamp(18px, 1.235vw, 24px);
+  font-weight: 700;
+}
+
+.slots__icon {
+  box-sizing: content-box;
+  padding: 10px;
+  border-radius: 50%;
+  background-color: var(--slots-icon);
+}
+
+@media (max-width: $breakpoint-mobile) {
+  .tournament {
+    margin-bottom: 70px;
+  }
+
+//   .tournament__bg {
+//     background-image: image-set(
+//       url(../../img/desktop/tournament_bg360@1x.webp) 1x,
+//       url(../../img/desktop/tournament_bg360@2x.webp) 2x
+//     );
+//     background-repeat: no-repeat;
+//     background-size: cover;
+//     background-position: center;
+//   }
+}
